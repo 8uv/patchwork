@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 1.3rem;
+    padding: 12px;
+
+    h2 {
+        line-height: .5;
+    }
+
+    a {
+        color: white;
+        &:hover {
+            color: color-mix(in oklab, white 100%, black 20%)
+        }
+    }
+
+    img {
+        object-fit: contain;
+    }
+}
