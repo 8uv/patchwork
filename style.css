@@ -1,13 +1,16 @@
 body {
     background-color: black;
     color: white;
+
     display: flex;
     flex-wrap: nowrap;
-    font-size: 1.3rem;
-    padding: 12px;
+    gap: 5vw;
+
+    line-height: .8;
+    overflow: hidden;
 
     h2 {
-        line-height: .5;
+        line-height: 0;
     }
 
     a {
@@ -19,5 +22,22 @@ body {
 
     img {
         object-fit: contain;
+        scale: 1.5;
+
+        @media (width <= 800px) {
+            display: none;
+        }
+    }
+
+    #viewer {
+        min-width: 20vw;
+        min-height: 30vh;
+
+        h5 {
+            white-space: nowrap;
+            user-select: none;
+            line-height: 0;
+            opacity: .25;
+        }
     }
 }
