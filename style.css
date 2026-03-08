@@ -21,6 +21,11 @@ body {
         }
     }
 
+    img {
+        object-fit: contain;
+        max-width: 40vmax;
+    }
+
     h2 {
         margin: 16px 0;
     } p {
@@ -31,6 +36,7 @@ body {
         min-height: 45vh;
         display: flex;
         flex-direction: column;
+        margin-bottom: 16px;
 
         h5 {
             white-space: nowrap;
