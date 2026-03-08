@@ -12,21 +12,12 @@
         <p>i've been a developer for 8ish years, i know javascript, web, luau and some python, i currently host <a href="https://www.stupidpenisroblox.com/">stupidpenisroblox.com</a></p>
         <p>i enjoy <a href="https://steamcommunity.com/profiles/76561198281655572">playing games</a> and <a href="https://www.last.fm/user/kalcifur">listening to music</a> and <a href="https://vndb.org/u321093/ulist?vnlist=1">reading visual novels</a> and <a href="https://anilist.co/user/kalcifur/">watching anime</a></p>
         <p>i run windows 10 on my main pc, mainly due to compatibility with some software + my very old second monitor, i run w11 + arch with hyprland dual boot on my laptop</p>
-        <div id="viewer">
+        <div id="view-frame">
+            <iframe src="view/plush.html" frameborder="0"></iframe>
             <h5>model graciously provided by <a href="https://www.roblox.com/users/353356761/profile">@chefpentakiw</a></h5>
         </div>
     </div>
-    <img src="images/kumibow.gif" alt="kumi from alien nine" draggable="false">
 </body>
-<script type="importmap">
-{
-    "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-    }
-}
-</script>
-<script type="module" src="viewer.js"></script>
 <script>
     document.querySelectorAll("a").forEach(a => { // im lazy lol
         a.target = "__blank"

@@ -1,5 +1,5 @@
 import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
-import { TrackballControls } from "https://unpkg.com/three@0.160.0/examples/jsm/controls/TrackballControls.js";
+import { ArcballControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/ArcballControls.js';
 import { GLTFLoader } from "https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
 const container = document.getElementById("viewer");
@@ -46,30 +46,38 @@ function setupLights() {
 }
 
 function setupControls() {
-    controls = new TrackballControls(camera, renderer.domElement);
 
-    // speeds
-    controls.rotateSpeed = 5;
-    controls.dynamicDampingFactor = 0.15;
+    // Pass `null` as scene if you don't want the gizmo axes
+    controls = new ArcballControls(camera, renderer.domElement, null);
 
-    // allow all movement types
-    controls.noZoom = true;
-    controls.noPan = true;
-    controls.noRotate = false;
+    // showZoom / pan / zoom settings
+    controls.showZoom = false;       // shows zoom widget (optional)
+    controls.enablePan = false;     // pan disabled
+    controls.enableZoom = false;     // zoom enabled
 
-    // smoother motion
-    controls.staticMoving = false;
-    controls.dynamicDampingFactor = 0.1;
+    // rotation speed
+    controls.rotateSpeed = 4.0;
 
-    // optional limits
+    // distance limits
     controls.minDistance = 0.5;
     controls.maxDistance = 20;
+
+    // enable smooth animations
+    controls.enableAnimations = true;
+    controls.dampingFactor = 10;
+
+    // optional: prevent flipping under the model
+    controls.maxPolarAngle = Math.PI;
+
+    // reset gizmo colors (optional)
+    // controls.setGizmoColor(0xffffff);
+
 }
 
 function loadModel() {
     const loader = new GLTFLoader();
     loader.load(
-        "images/plush.glb",
+        "../models/plush.glb",
         (gltf) => {
             model = gltf.scene;
             model.traverse((obj) => {
@@ -104,8 +112,8 @@ function centerAndFrameModel(model) {
 
 function animate() {
     requestAnimationFrame(animate);
-    controls.update();
 
+    controls.update();
     renderer.render(scene, camera);
 }
 
